@@ -1,36 +1,58 @@
-// Função para adicionar um número ao visor
-function appendNumber(number) {
-    const display = document.getElementById('display');
-    display.value += number;
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #333; /* Cor de fundo preta */
 }
 
-// Função para adicionar um operador ao visor
-function appendOperator(operator) {
-    const display = document.getElementById('display');
-    const lastChar = display.value[display.value.length - 1];
-
-    // Evitar operadores duplicados
-    if (['+', '-', '*', '/'].includes(lastChar)) {
-        display.value = display.value.slice(0, -1) + operator;
-    } else {
-        display.value += operator;
-    }
+.calculator {
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    background-color: #222; /* Fundo da calculadora em preto */
 }
 
-// Função para limpar o visor
-function clearDisplay() {
-    document.getElementById('display').value = '';
+#display {
+    width: 100%;
+    padding: 20px;
+    box-sizing: border-box;
+    font-size: 2em;
+    border: none;
+    background-color: #111; /* Fundo do visor em preto escuro */
+    color: #fff; /* Texto do visor em branco */
+    text-align: right;
+    overflow: hidden; /* Garante que o texto não cause rolagem */
+    white-space: nowrap; /* Evita quebras de linha no texto */
+    text-overflow: ellipsis; /* Adiciona reticências se o texto for muito longo */
 }
 
-// Função para apagar o último caractere
-function deleteLast() {
-    const display = document.getElementById('display');
-    display.value = display.value.slice(0, -1);
+.buttons {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
 }
 
-// Função para calcular o resultado
-function calculate() {
-    const display = document.getElementById('display');
-    try {
-        display.value = eval(display.value);
-    } catch (e)
+button {
+    font-size: 1.5em;
+    padding: 20px;
+    border: 1px solid #555;
+    background-color: #444; /* Fundo dos botões em cinza escuro */
+    color: #fff; /* Texto dos botões em branco */
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+button:hover {
+    background-color: #555; /* Fundo dos botões ao passar o mouse */
+}
+
+button:active {
+    background-color: #666; /* Fundo dos botões quando clicados */
+}
+
+.zero {
+    grid-column: span 2; /* Faz o botão 0 ocupar duas colunas */
+}
