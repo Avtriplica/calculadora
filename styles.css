@@ -25,6 +25,9 @@ body {
     background-color: #333;
     color: #fff;
     text-align: right;
+    overflow: hidden; /* Garante que o texto não cause rolagem */
+    white-space: nowrap; /* Evita quebras de linha no texto */
+    text-overflow: ellipsis; /* Adiciona reticências se o texto for muito longo */
 }
 
 .buttons {
@@ -41,7 +44,6 @@ button {
     transition: background-color 0.2s;
 }
 
-button:hover
 button:hover {
     background-color: #f1f1f1;
 }
