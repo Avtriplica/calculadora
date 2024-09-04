@@ -26,6 +26,9 @@ body {
     font-size: 24px;
     border: none;
     outline: none;
+    overflow: hidden; /* Garante que o texto não cause rolagem */
+    white-space: nowrap; /* Evita quebras de linha no texto */
+    text-overflow: ellipsis; /* Adiciona reticências se o texto for muito longo */
 }
 
 .buttons {
